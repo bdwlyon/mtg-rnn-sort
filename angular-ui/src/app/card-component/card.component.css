@@ -1,0 +1,99 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+hr {
+  visibility: hidden;
+  margin-bottom: -1px;
+}
+
+/*For debug purposes */
+/*.card-header, .card-picture, .card-text, .card-pt {*/
+/*border: 2px solid gray;*/
+/*}*/
+
+.template-colorless-creature { background-image: url("../../assets/artifact-creature-template.jpg"); }
+.template-colorless-spell { background-image: url("../../assets/artifact-template.jpg"); }
+.template-white-creature { background-image: url("../../assets/white-creature-template.jpg"); }
+.template-white-spell { background-image: url("../../assets/white-spell-template.jpg"); }
+.template-black-creature { background-image: url("../../assets/black-creature-template.jpg"); }
+.template-black-spell { background-image: url("../../assets/black-spell-template.jpg"); }
+.template-blue-creature { background-image: url("../../assets/blue-creature-template.jpg"); }
+.template-blue-spell { background-image: url("../../assets/blue-spell-template.jpg"); }
+.template-red-creature { background-image: url("../../assets/red-creature-template.jpg"); }
+.template-red-spell { background-image: url("../../assets/red-spell-template.jpg"); }
+.template-green-creature { background-image: url("../../assets/green-creature-template.jpg"); }
+.template-green-spell { background-image: url("../../assets/green-spell-template.jpg"); }
+.template-multi-creature{ background-image: url("../../assets/multi-creature-template.jpg"); }
+.template-multi-spell { background-image: url("../../assets/multi-spell-template.jpg"); }
+
+.card-template {
+  width: 736px;
+  height: 1026px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-header, .card-picture, .card-typeline {
+  width: 85%;
+  margin: auto;
+}
+.card-header {
+  height: 9.5%;
+  padding-top: 8%;
+  padding-bottom: 7.5%;
+  background: none;
+}
+.card-name {
+  padding-top: 20%;
+  padding-left: 2%;
+  font-size: 200%;
+  font-weight: bold;
+}
+.card-cost {
+  font-size: 125%;
+  padding-top: 1.5%;
+  float: right;
+}
+.card-picture {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 450px;
+  color: white;
+  height: 41.5%;
+}
+.card-typeline {
+  font-size: 150%;
+  margin-top: 1.5%;
+  padding-left: 4%;
+  margin-bottom: 3%;
+}
+.card-rarity {
+  float: right;
+  margin-right: 4%;
+}
+.card-text {
+  height: 24.5%;
+  width: 84%;
+  margin: auto;
+  font-size: 120%;
+  padding: 1.5%;
+}
+
+.card-pt {
+  width: 15.5%;
+  float: right;
+  margin-right: 9%;
+  padding-top: 0.5%;
+  font-size: 250%;
+  font-weight: bold;
+  text-align: center;
+}

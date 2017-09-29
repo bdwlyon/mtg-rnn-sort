@@ -1,0 +1,26 @@
+<div *ngIf="card; else no_card">
+  <div [ngClass]="templateStyle" style="font-family: 'Times New Roman'">
+    <div class="card-header">
+      <span class="card-name">{{card.name}}</span>
+      <span class="card-cost"><span [innerHtml]="parsedCardCost"></span></span>
+    </div>
+    <hr/>
+    <div class="card-picture">Imagine there's an image here</div>
+    <hr/>
+    <div class="card-typeline">
+      <span class="card-type">{{card.type}}</span>
+      <span class="card-rarity">{{card.rarity}}</span>
+    </div>
+    <hr/>
+    <div class="card-text">
+      <span *ngIf="parsedCardText; then parsedText else defaultText"></span>
+      <ng-template #parsedText><span [innerHtml]="parsedCardText"></span></ng-template>
+      <ng-template #defaultText><span>{{card.text}}</span></ng-template>
+    </div>
+    <hr/>
+    <div *ngIf="card.power" class="card-pt">{{card.power}} / {{card.toughness}}</div>
+    <div *ngIf="card.loyalty" class="card-loyalty">{{card.loyalty}}</div>
+  </div>
+</div>
+
+<ng-template #no_card>No card found...</ng-template>

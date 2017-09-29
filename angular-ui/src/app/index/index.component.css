@@ -1,0 +1,48 @@
+@font-face {
+  font-family: bebas;
+  src: url("../../assets/fonts/BEBAS.ttf") format("truetype");
+}
+
+body {
+  font-family: bebas, sans-serif;
+}
+
+a {
+  color: gray;
+  position: relative;
+  text-decoration: none;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: -2px;
+  left: 0;
+  background-color: gray;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.splash {
+  text-align: center;
+  color: lightgray;
+  font-size: 1500%;
+  line-height: 100%;
+}
+
+.col-md-4 {
+  text-align: center;
+  color: gray;
+  font-size: 200%;
+}
