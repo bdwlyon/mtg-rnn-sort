@@ -16,4 +16,6 @@ export class Card {
   layout: string;
   names: string[];
   number: string;
+  tags: string[];
+  validity: string;
 }
