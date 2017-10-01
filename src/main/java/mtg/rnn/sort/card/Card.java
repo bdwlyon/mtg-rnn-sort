@@ -44,6 +44,10 @@ public class Card {
 
     private String number;
 
+    private List<String> tags;
+
+    private String validity;
+
     public Card() {
     }
 
@@ -181,6 +185,22 @@ public class Card {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public List<String> getTags(){
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public String getValidity() {
+        return validity;
+    }
+
+    public void setValidity(String validity) {
+        this.validity = validity;
     }
 
     @Override
