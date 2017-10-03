@@ -46,10 +46,13 @@ public class MainController {
         return aggregator.getUnsorted();
     }
 
-    @RequestMapping(method= RequestMethod.POST, consumes="application/json", path="/cards/sorted")
+
+    @RequestMapping(method= RequestMethod.POST, consumes="application/json",
+            path="/cards/sorted")
     @ResponseBody
     public Card sortCard(@RequestBody Card card) {
-        System.out.println("not implemented yet...");
-        return card;
+        Card sortedCard = aggregator.sortCard(card);
+        System.out.println("received a card and sorted it: " + sortedCard.toString());
+        return sortedCard;
     }
 }

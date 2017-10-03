@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { CardComponent } from './card-component/card.component';
+import { TagInfoTextComponent } from './tag-info-text/tag-info-text.component';
 import { CardService } from './services/card.service';
 import { SortComponent } from './sort/sort.component';
 import { SearchComponent } from './search/search.component';
@@ -22,7 +23,8 @@ import { CardUtil } from './utils/card.util';
     CardComponent,
     SortComponent,
     SearchComponent,
-    CubeComponent
+    CubeComponent,
+    TagInfoTextComponent
   ],
   imports: [
     BrowserModule,

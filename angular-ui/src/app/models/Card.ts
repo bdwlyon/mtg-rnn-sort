@@ -1,3 +1,5 @@
+import {Tags} from "./Tags";
+
 export class Card {
   id: number;
   name: string;
@@ -16,6 +18,6 @@ export class Card {
   layout: string;
   names: string[];
   number: string;
-  tags: string[];
+  tags: Tags;
   validity: string;
 }

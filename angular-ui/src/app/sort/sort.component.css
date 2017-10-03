@@ -24,6 +24,14 @@
   box-shadow: 0 10px 0 0 #5d6268;
 }
 
+.btn-success.raised-lg {
+  box-shadow: 0 10px 0 0 #176329;
+}
+
+.btn-danger.raised-lg {
+  box-shadow: 0 10px 0 0 #8e222c;
+}
+
 .btn-secondary.raised:active, .btn-secondary.raised.active {
   background: #727b84;
   color: lightgray;

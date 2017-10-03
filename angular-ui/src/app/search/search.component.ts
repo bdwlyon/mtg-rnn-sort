@@ -27,7 +27,7 @@ export class SearchComponent {
     this.cardService.search(cardName).then(foundCard => {
       this.card = foundCard;
       this.setTemplateStyle(this.card.types, this.card.colors);
-      console.log('mana: ' + this.card.manaCost);
+      console.log(`{"name": ${this.card.name}, "validity": ${this.card.validity}, "tags": ${this.card.tags.toString()}`);
       this.parsedCardCost = CardUtil.parseAllSymbols(this.card.manaCost, this.card.name);
       this.parsedCardText = CardUtil.parseAllSymbols(this.card.text, this.card.name);
     });
