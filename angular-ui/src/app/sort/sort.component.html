@@ -1,7 +1,16 @@
 <div class="row">
+    <div class="col-sm-3"><a routerLink="">
+        <button type="button" class="btn btn-secondary" style="margin: 10px">Home</button></a>
+    </div>
+</div>
+<div class="row">
   <div class="col-sm-12" *ngIf="card">
     <pre class="main-text">Here    is    a    card:</pre>
-    <card-component [card]="card"></card-component><br/><br/>
+    <div *ngIf="loadingCard"><div class="loader">Loading card...</div></div>
+      <div *ngIf="!loadingCard">
+          <card-component [card]="card"></card-component>
+      </div>
+      <br/><br/>
     <pre class="main-text">Is   it   valid?</pre>
   </div>
 </div>
@@ -39,45 +48,7 @@
           </button>
         </div>
         <div class="modal-body">
-          When tagging maybe and almost valid cards, assume that either the card works the way you think it might,
-          or the necessary changes have been made to make the card valid.
-          <br/><br/>
-          <ul>
-            <li>
-              <b>ATROCIOUS:</b> The card is just terrible (e.g. a vanilla 1/1 for CMC 6)
-            </li>
-            <li>
-              <b>BROKEN:</b> The card will break the game if played. This generally includes cards that create
-              infinite loops or easily enable infinite loops.
-            </li>
-            <li>
-              <b>FUNNY:</b> Name, text, or some other combination of the card's features are comical
-            </li>
-            <li>
-              <b>NOVEL:</b> The card is generally balanced and has some unique or interesting rules text that could
-              create some fun strategies and gameplay. This tag can be used to prioritize what cards should go in
-              the cube.
-            </li>
-            <li>
-              <b>OVERPOWERED:</b> The value you get from playing the card is way higher than its cost. A step below
-              broken, but still way better than it probably should be. (e.g. a vanilla 6/6 for CMC 3)
-            </li>
-            <li>
-              <b>PLAGIARIZED:</b> Sometimes the neural net will lift the name or rules text (or both) verbatim from
-              an already existing card. Don't worry about checking the card now, if you think any part of it might
-              have been plagiarized, tag it as such and we can check it later if we're considering adding it to the
-              cube.
-            </li>
-            <li>
-              <b>UNLIKELY:</b> The card needs a very specific and unlikely situation in order to be useful. May often be
-              atrocious.
-            </li>
-            <li>
-              <b>YOU TRIED:</b> The card starts off fine, but then goes off the rails towards the end. Or, the card has
-              a large amount of complex rules text that is almost all valid, but one part of it invalidates the whole
-              thing.
-            </li>
-          </ul>
+          <tag-info-text></tag-info-text>
         </div>
       </ng-template>
     </div>
@@ -113,10 +84,15 @@
 
 <div class="row">
   <div class="col-sm-12 tag-check-group">
-    <button type="button" class="btn btn-secondary btn-xlg raised-lg" (click)="submit()">Submit</button>
-  </div>
-  <div class="col-sm-12 tag-check-group"><a routerLink="">
-    <button type="button" class="btn btn-secondary btn-xlg raised-lg">Home</button></a>
+      <div *ngIf="sortSuccess">
+          <button type="button" class="btn btn-success btn-xlg raised-lg">Sorted!</button>
+      </div>
+      <div *ngIf="sortFail">
+          <button type="button" class="btn btn-danger btn-xlg raised-lg">Sort Failed!</button>
+      </div>
+      <div *ngIf="!sortSuccess && !sortFail">
+          <button type="button" class="btn btn-secondary btn-xlg raised-lg" (click)="submit()">Submit</button>
+      </div>
   </div>
 </div>
 

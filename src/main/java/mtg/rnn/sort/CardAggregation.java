@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Random;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
+import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @Repository
 public class CardAggregation {
@@ -22,7 +24,7 @@ public class CardAggregation {
     // we have to implement our own sample aggregation operation because apparently
     // spring-data-mongodb didn't have it implemented until spring 2017, and the
     // spring-boot-starter-mongodb version we're using does't have it
-    // and I don't know what version , if any, would have it
+    // and I don't know what version (if any) would have it
     private class SampleOperation implements AggregationOperation {
         private DBObject operation;
 
@@ -36,30 +38,26 @@ public class CardAggregation {
         }
     }
 
-//    public List<Card> getUnsorted() {
-//        TypedAggregation<Card> agg = newAggregation(
-//                Card.class,
-//                match(Criteria.where("tags").exists(false)),
-//                new SampleOperation(
-//                        new BasicDBObject("$sample", new BasicDBObject("size", 1))
-//                )
-//        );
-//
-//        AggregationResults<Card> cardResults = mongoTemplate.aggregate(agg, Card.class);
-//        List<Card> result = cardResults.getMappedResults();
-//
-//        return result;
-//    }
-
     public Card getUnsorted() {
         TypedAggregation<Card> agg = newAggregation(
                 Card.class,
-                match(Criteria.where("tags").exists(false))
+                match(where("tags").exists(false))
         );
 
         // this is a stupid hack because I can't get sample to work
         AggregationResults<Card> cardResults = mongoTemplate.aggregate(agg, Card.class);
         List<Card> cardList = cardResults.getMappedResults();
         return cardList.get(new Random().nextInt(cardList.size()));
+    }
+
+    public Card sortCard(Card card) {
+        Query query = new Query(where("id").is(card.getId()));
+
+        Card sortedCard = mongoTemplate.findOne(query, Card.class, "card");
+        sortedCard.setValidity(card.getValidity());
+        sortedCard.setTags(card.getTags());
+        mongoTemplate.save(sortedCard);
+
+        return sortedCard;
     }
 }

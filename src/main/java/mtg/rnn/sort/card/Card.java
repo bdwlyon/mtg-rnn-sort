@@ -44,7 +44,7 @@ public class Card {
 
     private String number;
 
-    private List<String> tags;
+    private Tags tags;
 
     private String validity;
 
@@ -187,11 +187,11 @@ public class Card {
         this.number = number;
     }
 
-    public List<String> getTags(){
+    public Tags getTags(){
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(Tags tags) {
         this.tags = tags;
     }
 
@@ -223,6 +223,8 @@ public class Card {
                 ", layout='" + layout + '\'' +
                 ", names=" + names +
                 ", number='" + number + '\'' +
+                ", tags=" + tags +
+                ", validity='" + validity + '\'' +
                 '}';
     }
 }
