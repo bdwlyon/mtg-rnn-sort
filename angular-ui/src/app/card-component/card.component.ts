@@ -13,7 +13,9 @@ export class CardComponent implements OnChanges{
 
   @Input() card: Card;
 
-  cardName: string;
+  bSide: Card;
+  isBSide: boolean = false;
+
   templateStyle: string[];
   parsedCardCost = '<b>Loading...</b>';
   parsedCardText: string;
@@ -26,6 +28,16 @@ export class CardComponent implements OnChanges{
       this.setTemplateStyle(this.card.types, this.card.colors);
       this.parsedCardCost = CardUtil.parseAllSymbols(this.card.manaCost, this.card.name);
       this.parsedCardText = CardUtil.parseAllSymbols(this.card.text, this.card.name);
+
+      // set the card's second side if it is a split/transform/etc card, otherwise indicate that the current card is the second side
+      if(this.card.names.length > 1) {
+        if(this.card.names[1] === this.card.name) {
+          this.isBSide = true;
+        }
+        else {
+          this.cardService.search(this.card.names[1]).then(card => this.bSide = card);
+        }
+      }
     }
   }
 

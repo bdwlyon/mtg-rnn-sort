@@ -21,6 +21,14 @@
     <div *ngIf="card.power" class="card-pt">{{card.power}} / {{card.toughness}}</div>
     <div *ngIf="card.loyalty" class="card-loyalty">{{card.loyalty}}</div>
   </div>
+  <div *ngIf="bSide">
+    <br/><br/>
+    <pre class="bside-text">This    card    has    a    {{card.layout}}    side:</pre>
+    <card-component [card]="bSide"></card-component>
+  </div>
+  <div *ngIf="isBSide">
+    <pre class="bside-text">This    card    is    the    second    side    of    a    {{card.layout}}    card</pre>
+  </div>
 </div>
 
 <ng-template #no_card>No card found...</ng-template>
