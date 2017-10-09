@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-sm-12">
       <br/>
-      <a routerLink=""><button type="button" class="btn btn-dark">HOME</button></a><br><br>
       <ngb-alert type="secondary" [dismissible]="false">
         Currently, you can only search for cards by name. There are plans to expand search functionality to allow for more
         complex queries, such as searching by validity, card tags, card/creature type, color, and CMC.
@@ -11,15 +10,18 @@
         <div class="input-group stylish-input-group">
           <input [(ngModel)]="cardName" type="text" class="form-control"  placeholder="Search" >
           <span class="input-group-addon">
-            <button (click)="onSearch(cardName)" type="submit" aria-label="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </span>
-        </div>    
+                        <button (click)="onSearch(cardName)" type="submit" aria-label="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </span>
+        </div>
+      </div><br>
+      <a routerLink=""><button type="button" class="btn btn-dark">HOME</button></a>
     </div>
-    <br>
-    <div *ngIf="card.tags"><h1 class="main-text">Sorted</h1></div>
-    <div *ngIf="!card.tags"><h1 class="main-text">Unsorted</h1></div>
     <div class="col-12" *ngIf="card"><card-component [card]="card"></card-component></div>
+    <div class="col-12" *ngIf="card && card.tags"><h1 class="main-text">Sorted</h1></div>
+    <div class="col-12" *ngIf="card && !card.tags"><h1 class="main-text">Unsorted</h1></div>
   </div>
 </div>
+
+
