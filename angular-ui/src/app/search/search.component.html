@@ -8,32 +8,18 @@
         complex queries, such as searching by validity, card tags, card/creature type, color, and CMC.
       </ngb-alert>
       <div id="imaginary_container">
-      <h2>Search by card name:</h2>
         <div class="input-group stylish-input-group">
-
           <input [(ngModel)]="cardName" type="text" class="form-control"  placeholder="Search" >
           <span class="input-group-addon">
             <button (click)="onSearch(cardName)" type="submit" aria-label="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
           </span>
-        </div>
-
-<!--         <div id="imaginary_container">
-        <h2>Search by card color:</h2>
-        <div class="input-group stylish-input-group">
-          <input [(ngModel)]="cardColor" type="text" class="form-control"  placeholder="Search" >
-          <span class="input-group-addon">
-                        <button (click)="onSearch(cardColor)" type="submit" aria-label="submit">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                    </span>
-        </div>
- -->      </div><br>
-      
+        </div>    
     </div>
-    <div *ngIf="card.tags"><h1>Sorted</h1></div>
-    <div *ngIf="!card.tags"><h1>Unsorted</h1></div>
+    <br>
+    <div *ngIf="card.tags"><h1 class="main-text">Sorted</h1></div>
+    <div *ngIf="!card.tags"><h1 class="main-text">Unsorted</h1></div>
     <div class="col-12" *ngIf="card"><card-component [card]="card"></card-component></div>
   </div>
 </div>
