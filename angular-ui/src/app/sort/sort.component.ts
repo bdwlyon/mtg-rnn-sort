@@ -59,7 +59,6 @@ export class SortComponent implements OnInit {
               console.log(`got the sorted card back from the spring server: ${this.printCard(sortedCard)}`);
               this.sortSuccess = true;
 
-              // wait 2 seconds, then reload the page
               setTimeout(() => {
                   this.ngOnInit();
                   window.scrollTo(0,0);
