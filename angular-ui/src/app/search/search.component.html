@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
       <br/>
+      <a routerLink=""><button type="button" class="btn btn-dark">HOME</button></a><br><br>
       <ngb-alert type="secondary" [dismissible]="false">
         Currently, you can only search for cards by name. There are plans to expand search functionality to allow for more
         complex queries, such as searching by validity, card tags, card/creature type, color, and CMC.
@@ -29,7 +30,7 @@
                     </span>
         </div>
  -->      </div><br>
-      <a routerLink=""><button type="button" class="btn btn-dark">HOME</button></a>
+      
     </div>
     <div *ngIf="card.tags"><h1>Sorted</h1></div>
     <div *ngIf="!card.tags"><h1>Unsorted</h1></div>
