@@ -19,5 +19,9 @@
       <a routerLink=""><button type="button" class="btn btn-dark">HOME</button></a>
     </div>
     <div class="col-12" *ngIf="card"><card-component [card]="card"></card-component></div>
+    <div class="col-12" *ngIf="card && card.tags"><h1 class="main-text">Sorted</h1></div>
+    <div class="col-12" *ngIf="card && !card.tags"><h1 class="main-text">Unsorted</h1></div>
   </div>
 </div>
+
+
