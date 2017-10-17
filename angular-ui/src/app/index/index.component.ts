@@ -12,5 +12,9 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    // automatically redirect to the login page if the user is not logged in
+    if(!(localStorage.getItem('currentUser'))) {
+      this.router.navigate(['/login']);
+    }
   }
 }

@@ -13,6 +13,10 @@ a {
   text-decoration: none;
 }
 
+a.thin:before {
+  height: 2px;
+}
+
 a:before {
   content: "";
   position: absolute;
@@ -32,6 +36,12 @@ a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+}
+
+.logout {
+  text-align: right;
+  color: lightgray;
+  margin-right: 10px;
 }
 
 .splash {

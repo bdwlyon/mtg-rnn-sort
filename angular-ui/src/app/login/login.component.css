@@ -1,0 +1,40 @@
+@font-face {
+    font-family: bebas;
+    src: url("../../assets/fonts/BEBAS.ttf") format("truetype");
+}
+
+form {
+    width: 30%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+.has-error {
+    color: #dc3545;
+}
+
+.login-button {
+    text-align: center;
+}
+
+.btn-lg {
+    font-family: bebas, sans-serif;
+    width: 35%;
+    margin: 20px 30px 20px;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-radius: 0.5rem;
+}
+
+.btn-secondary.raised {
+    box-shadow: 0 10px 0 0 #5d6268;
+}
+
+.btn-secondary.raised:active, .btn-secondary.raised.active {
+    background: #727b84;
+    color: lightgray;
+    box-shadow: none;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}

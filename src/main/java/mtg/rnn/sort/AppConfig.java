@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "mtg.rnn.sort.card")
+@EnableMongoRepositories(basePackages = {"mtg.rnn.sort.card", "mtg.rnn.sort.auth"})
 public class AppConfig {
 
     public @Bean

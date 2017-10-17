@@ -3,6 +3,10 @@
   src: url("../../assets/fonts/Grotesk.otf");
 }
 
+form {
+  margin-top: 5%;
+}
+
 .info-text {
   margin: 5px;
 }
@@ -30,4 +34,12 @@
   font-size: 400%;
   border: none;
   background: none;
+}
+
+.sorted {
+  color: green;
+}
+
+.unsorted {
+  color: indianred;
 }

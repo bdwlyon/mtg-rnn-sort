@@ -19,9 +19,14 @@
 ### NetBeans ###
 nbproject/private/
 build/
+out/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
 
 node_modules/
+package-lock.json
+
+## Side-effects from building angular into the resources/static directory of spring ##
+src/main/resources/static/
