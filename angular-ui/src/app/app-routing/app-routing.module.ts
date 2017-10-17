@@ -6,12 +6,14 @@ import {SortComponent} from '../sort/sort.component';
 import {SearchComponent} from '../search/search.component';
 import {IndexComponent} from '../index/index.component';
 import {CubeComponent} from "../cube/cube.component";
+import {LoginComponent} from "../login/login.component";
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
   {path: 'sort', component: SortComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'cube', component: CubeComponent}
+  {path: 'cube', component: CubeComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

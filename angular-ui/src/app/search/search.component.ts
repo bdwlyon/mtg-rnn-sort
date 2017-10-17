@@ -19,16 +19,24 @@ export class SearchComponent {
   parsedCardCost = '<b>Loading...</b>';
   parsedCardText: string;
 
+  cardNotFound: boolean;
+
   constructor(private router: Router, private cardService: CardService) {
   }
 
   onSearch(cardName: string) {
     this.card = null;
     this.cardService.search(cardName).then(foundCard => {
-      this.card = foundCard;
-      this.setTemplateStyle(this.card.types, this.card.colors);
-      this.parsedCardCost = CardUtil.parseAllSymbols(this.card.manaCost, this.card.name);
-      this.parsedCardText = CardUtil.parseAllSymbols(this.card.text, this.card.name);
+      if(!foundCard) {
+        this.cardNotFound = true;
+      }
+      else {
+        this.cardNotFound = false;
+        this.card = foundCard;
+        this.setTemplateStyle(this.card.types, this.card.colors);
+        this.parsedCardCost = CardUtil.parseAllSymbols(this.card.manaCost, this.card.name);
+        this.parsedCardText = CardUtil.parseAllSymbols(this.card.text, this.card.name);
+      }
     });
   }
 

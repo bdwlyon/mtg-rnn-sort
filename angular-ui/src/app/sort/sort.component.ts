@@ -7,6 +7,7 @@ import {Tags} from '../models/Tags';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/interval';
+import {CurrentUser} from "../models/CurrentUser";
 
 @Component({
   selector: 'app-sort',
@@ -52,21 +53,31 @@ export class SortComponent implements OnInit {
   }
 
   submit() {
-      this.card.validity = this.validity;
-      this.card.tags = this.tags;
-      this.cardService.sortCard(this.card)
-          .then(sortedCard => {
-              console.log(`got the sorted card back from the spring server: ${this.printCard(sortedCard)}`);
-              this.sortSuccess = true;
+      if (localStorage.getItem('currentUser')) {
+          const currentUser = JSON.parse(localStorage.getItem('currentUser')) as CurrentUser;
+          this.card.validity = this.validity;
+          this.card.tags = this.tags;
+          this.cardService.sortCard(this.card, currentUser.token)
+              .then(sortedCard => {
+                  console.log(`got the sorted card back from the spring server: ${this.printCard(sortedCard)}`);
+                  this.sortSuccess = true;
 
-              setTimeout(() => {
+                  setTimeout(() => {
                   this.ngOnInit();
                   window.scrollTo(0,0);
-              }, 1250)
-          },
+                  }, 1250)
+              },
               error => {
-              console.error("Error attempting to sort card", error);
-              this.sortFail = true;
-          });
+                  console.error("Error attempting to sort card", error);
+                  if(error === "UNAUTHORIZED") {
+                      this.router.navigate(['/login']);
+                  }
+                  this.sortFail = true;
+              });
+      }
+      else {
+          // user is not authenticated, prompt for login
+          this.router.navigate(['/login']);
+      }
   }
 }

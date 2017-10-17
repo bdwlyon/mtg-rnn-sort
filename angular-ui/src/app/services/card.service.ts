@@ -18,6 +18,9 @@ export class CardService {
 
   private static handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
+    if(error.status === 401) {
+      return Promise.reject("UNAUTHORIZED");
+    }
     return Promise.reject(error.message || error);
   }
 
@@ -35,8 +38,8 @@ export class CardService {
       .catch(CardService.handleError);
   }
 
-  sortCard(card: Card): Promise<Card> {
-    const headers = new Headers({'Content-Type': 'application/json'});
+  sortCard(card: Card, jwt: string): Promise<Card> {
+    const headers = new Headers({'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}`});
     const options = new RequestOptions({headers: headers});
     return this.http.post(this.sortUrl, card, options)
       .toPromise()
