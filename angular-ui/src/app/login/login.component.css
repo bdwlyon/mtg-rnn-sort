@@ -28,7 +28,7 @@ form {
 }
 
 .btn-secondary.raised {
-    box-shadow: 0 10px 0 0 #5d6268;
+    box-shadow: 0 7px 0 0 #5d6268;
 }
 
 .btn-secondary.raised:active, .btn-secondary.raised.active {

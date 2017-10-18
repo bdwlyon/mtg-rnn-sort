@@ -16,6 +16,16 @@ Once you have an instance of Mongo running with `mongod`, (in a separate shell/c
 mongoimport --db test --collection card --drop --file ~/mtg-rnn-sort/sample_data/mtg_cards.json
 ```
 
+Then, import the test user
+```
+mongoimport --db test --collection user --drop --file ~/mtg-rnn-sort/sample_data/user.json
+```
+to log in with this sample user, use the credentials:
+
+>**username**: dev
+>
+>**password**: test
+
 ------
 
 To start the spring server, from the root of the repo run
@@ -42,3 +52,7 @@ ng serve --proxy-config proxy.conf.json
 ------
 
 Go to http://localhost:4200 in your favorite web browser to view the server
+
+Note that you can also build everything into a .war file for easy deployment with `gradle clean build run` (on Windows: `./gradlew clean build run`).
+Spring will then serve all of the angular files from port 8080. This is however not recommended for development work, 
+as it takes a considerable amount of time to stop/rebuild/start the server when testing changes.
