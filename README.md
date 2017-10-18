@@ -1,7 +1,18 @@
 # mtg-rnn-sort
 This is a simple web app that uses spring boot to read Magic: The Gathering card data (in mtgjson format) from a MongoDB instance and then render the cards in angular 4.
 
-Eventually, users will be able to categorize the card, and tag it with a number of descriptive tags.
+Currently, users can:
+* log in
+* view a random stream of unsorted cards
+  * assign the card a validity rating of [yes, no, maybe, almost]
+  * mark the card with a variety of tags providing additional description
+* search the database for cards via card name
+  * see whether a card returned from search has been sorted or not
+  
+Eventually, the plan is to allow users to:
+* search and filter multiple cards by [color, card type, cmc, validity, tags, etc.]
+* mark sorted cards as suitable for the cube
+* view cards that have been marked for the cube and filter them by various criteria
 
 ## Setup
 Requirements:
