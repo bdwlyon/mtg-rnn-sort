@@ -12,6 +12,7 @@ export class CardUtil {
   static yMana = '<img alt="{Y}" src="../../assets/symbols/Y.svg" width="25" height="25">';
   static zMana = '<img alt="{Z}" src="../../assets/symbols/Z.svg" width="25" height="25">';
 
+  static generic0 = '<img alt="{0}" src="../../assets/symbols/0.svg" width="22" height="22">';
   static generic1 = '<img alt="{1}" src="../../assets/symbols/1.svg" width="22" height="22">';
   static generic2 = '<img alt="{2}" src="../../assets/symbols/2.svg" width="22" height="22">';
   static generic3 = '<img alt="{3}" src="../../assets/symbols/3.svg" width="22" height="22">';
@@ -74,6 +75,7 @@ export class CardUtil {
       .replace(/{Z}/gi, CardUtil.zMana)
       // generics
       // this is really stupid, but apparently we can't do this dynamically, so whatever...
+      .replace(/\{0\}/gi, CardUtil.generic0)
       .replace(/\{1\}/gi, CardUtil.generic1)
       .replace(/\{2\}/gi, CardUtil.generic2)
       .replace(/\{3\}/gi, CardUtil.generic3)
