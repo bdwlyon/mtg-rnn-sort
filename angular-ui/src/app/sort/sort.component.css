@@ -3,9 +3,24 @@
   src: url("../../assets/fonts/BEBAS.ttf") format("truetype");
 }
 
+.col-sm-12 {
+  width: 736px;
+  margin: auto;
+}
+
 .btn-xlg {
   width: 37%;
   margin: 20px 30px 20px;
+  padding: 1rem 1.5rem;
+  font-size: 2.75rem;
+  line-height: 1.75;
+  border-radius: 0.5rem;
+}
+
+.btn-submit {
+  width: 736px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 1rem 1.5rem;
   font-size: 2.75rem;
   line-height: 1.75;
@@ -30,6 +45,12 @@
 
 .btn-danger.raised-lg {
   box-shadow: 0 10px 0 0 #8e222c;
+}
+
+.home-btn {
+  width: 75px;
+  height: 75px;
+  font-size: 250%;
 }
 
 .btn-secondary.raised:active, .btn-secondary.raised.active {
