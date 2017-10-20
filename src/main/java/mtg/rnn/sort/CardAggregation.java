@@ -38,7 +38,7 @@ public class CardAggregation {
         }
     }
 
-    public Card getUnsorted() {
+    Card getUnsorted() {
         TypedAggregation<Card> agg = newAggregation(
                 Card.class,
                 match(where("tags").exists(false))
@@ -50,7 +50,7 @@ public class CardAggregation {
         return cardList.get(new Random().nextInt(cardList.size()));
     }
 
-    public Card sortCard(Card card) {
+    Card sortCard(Card card) {
         Query query = new Query(where("id").is(card.getId()));
 
         Card sortedCard = mongoTemplate.findOne(query, Card.class, "card");

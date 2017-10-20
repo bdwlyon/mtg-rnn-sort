@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-3"><a routerLink="">
-        <button type="button" class="btn btn-dark btn-lg" style="margin: 10px"><i class="fa fa-home" aria-hidden="true"></i></button></a>
+        <button type="button" class="btn btn-dark btn-lg home-btn" style="margin: 10px"><i class="fa fa-home" aria-hidden="true"></i></button></a>
     </div>
 </div>
 
@@ -93,13 +93,13 @@
   <div class="row">
     <div class="col-sm-12 tag-check-group">
         <div *ngIf="sortSuccess">
-            <button type="button" class="btn btn-success btn-xlg raised-lg">Sorted!</button>
+            <button type="button" class="btn btn-success btn-submit raised-lg">Sorted!</button>
         </div>
         <div *ngIf="sortFail">
-            <button type="button" class="btn btn-danger btn-xlg raised-lg">Sort Failed!</button>
+            <button type="button" class="btn btn-danger btn-submit raised-lg">Sort Failed!</button>
         </div>
         <div *ngIf="!sortSuccess && !sortFail">
-            <button type="button" class="btn btn-secondary btn-xlg raised-lg" (click)="submit()">Submit</button>
+            <button type="button" class="btn btn-secondary btn-submit raised-lg" (click)="submit()">Submit</button>
         </div>
     </div>
   </div>

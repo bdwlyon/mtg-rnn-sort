@@ -5,25 +5,30 @@
 
 form {
   margin-top: 5%;
+  width: 100%;
+}
+
+.home-btn {
+  width: 75px;
+  height: 75px;
+  font-size: 250%;
 }
 
 .info-text {
   margin: 5px;
-}
-/* some css for styling a search bar. Maybe move this somewhere eventually? */
-#imaginary_container{
-  margin-top:5%; /* Don't copy this */
 }
 
 .stylish-input-group .input-group-addon{
   background: white !important;
 }
 .stylish-input-group .form-control{
+  font-size: 2em;
   border-right:0;
   box-shadow:0 0 0;
   border-color:#ccc;
 }
 .stylish-input-group button{
+  font-size: 2em;
   border:0;
   background:transparent;
 }
