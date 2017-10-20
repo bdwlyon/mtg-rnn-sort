@@ -18,8 +18,8 @@
       <ng-template #defaultText><span>{{card.text}}</span></ng-template>
     </div>
     <hr/>
-    <div *ngIf="card.power" class="card-pt">{{card.power}} / {{card.toughness}}</div>
-    <div *ngIf="card.loyalty" class="card-loyalty">{{card.loyalty}}</div>
+    <div *ngIf="card.power" class="card-pt-loyalty">{{card.power}} / {{card.toughness}}</div>
+    <div *ngIf="card.loyalty" class="card-pt-loyalty">{{card.loyalty}}</div>
   </div>
   <div *ngIf="bSide">
     <br/><br/>

@@ -46,7 +46,7 @@ export class CardComponent implements OnChanges{
     this.templateStyle.push('card-template');
     let templateType = '';
     let templateColor = '';
-    if (cardTypes.includes('creature')) {
+    if (cardTypes.includes('creature') || cardTypes.includes('planeswalker')) {
       templateType = 'creature';
     } else {
       templateType = 'spell';
